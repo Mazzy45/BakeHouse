@@ -1,6 +1,4 @@
-package com.bakehouse;
-
-import com.bakehouse.view.BakeHouseGUI;
+package bakehouse;
 
 public class Main {
     public static void main(String[] args) {

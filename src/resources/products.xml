@@ -1,0 +1,12 @@
+<products>
+    <product>
+        <name>Cake</name>
+        <price>10.0</price>
+        <quantity>5</quantity>
+    </product>
+    <product>
+        <name>Bread</name>
+        <price>2.5</price>
+        <quantity>10</quantity>
+    </product>
+</products>

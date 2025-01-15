@@ -1,14 +1,12 @@
-package com.bakehouse.controller;
-
-import com.bakehouse.model.Product;
+package bakehouse.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductController {
+public class Cart {
     private List<Product> products;
 
-    public ProductController() {
+    public Cart() {
         products = new ArrayList<>();
     }
 
