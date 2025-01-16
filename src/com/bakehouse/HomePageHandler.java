@@ -1,6 +1,6 @@
 // 2. HomePageHandler.java
 
-package com.bakehouse;
+package src.com.bakehouse;
 
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;

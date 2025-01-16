@@ -1,6 +1,6 @@
 // 1. BakehouseServer.java
 
-package com.bakehouse;
+package src.com.bakehouse;
 
 import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
