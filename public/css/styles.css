@@ -1,53 +1,119 @@
-body {
-    font-family: Arial, sans-serif;
+/* Global Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #fffcf2;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdfdfd;
     color: #333;
+    line-height: 1.6;
 }
 
-header {
-    background-color: #ff6f61;
-    padding: 20px;
-    text-align: center;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background: #ff6f61;
     color: white;
+    padding: 20px 0;
 }
 
-header nav a {
-    margin: 0 15px;
+.header h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.nav-links a {
     text-decoration: none;
     color: white;
-    font-weight: bold;
-}
-
-header nav a:hover {
-    text-decoration: underline;
+    font-weight: 600;
 }
 
 .hero {
-    padding: 50px;
     text-align: center;
-    background: url('../images/sample-product.jpg') no-repeat center center;
-    background-size: cover;
+    padding: 100px 20px;
+    background: linear-gradient(120deg, #ff6f61, #f8b400);
     color: white;
 }
 
-.button {
-    background-color: #4caf50;
-    color: white;
+.hero h2 {
+    font-size: 2.5rem;
+}
+
+.hero .btn {
+    display: inline-block;
+    margin-top: 20px;
     padding: 10px 20px;
+    background: white;
+    color: #ff6f61;
+    border-radius: 5px;
     text-decoration: none;
+    font-weight: 600;
+}
+
+.products {
+    padding: 50px 20px;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
     border-radius: 5px;
 }
 
-.button:hover {
-    background-color: #45a049;
+.product-card h3 {
+    margin: 15px 0 10px;
 }
 
-footer {
-    text-align: center;
+.product-card .btn {
     padding: 10px;
-    background-color: #333;
+    background: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-card .btn:hover {
+    background: #e05a50;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
     color: white;
 }

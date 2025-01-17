@@ -16,9 +16,15 @@ function validateForm(event) {
 }
 
 // Attach form validation to login/register forms
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("loginForm");
     const registerForm = document.getElementById("registerForm");
     if (loginForm) loginForm.addEventListener("submit", validateForm);
     if (registerForm) registerForm.addEventListener("submit", validateForm);
+
+    // Attach click events to Add to Cart buttons
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach((button, index) => {
+        button.addEventListener('click', () => addToCart(index + 1)); // Using index as product ID
+    });
 });

@@ -3,30 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bakehouse - Welcome</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="/js/script.js"></script>
+    <title>BakeHouse - Home</title>
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
-    <h1>Welcome to Bakehouse</h1>
-    <a href="products.html" class="button">Shop Now</a>
-    <nav>
-        <ul>
-            <li><a href="/products">View Products</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
-        </ul>
-    </nav>
+<header class="header">
+    <div class="container">
+        <h1>BakeHouse</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
-<div class="container">
-    <h2>Our Fresh Baked Goods</h2>
-    <p>Discover delicious treats and make your day sweeter.</p>
-</div>
+<main>
+    <section class="hero">
+        <h2>Freshly Baked Goodness Delivered to Your Doorstep</h2>
+        <p>Experience the best baked goods crafted with love and the finest ingredients.</p>
+        <a href="products.html" class="btn">Shop Now</a>
+    </section>
+</main>
 
-<footer>
-    <p>&copy; 2025 Bakehouse Bakery. All rights reserved.</p>
+<footer class="footer" id="contact">
+    <p>&copy; 2025 BakeHouse. All rights reserved.</p>
 </footer>
+
+<!-- Include JavaScript file -->
+<script src="public/js/script.js"></script>
 </body>
 </html>
