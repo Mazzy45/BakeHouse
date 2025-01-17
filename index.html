@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bakehouse - Welcome</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="/js/script.js"></script>
+    <title>Welcome to Bakehouse</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <header>
-    <h1>Welcome to Bakehouse</h1>
-    <a href="products.html" class="button">Shop Now</a>
+    <div class="logo">Bakehouse</div>
     <nav>
-        <ul>
-            <li><a href="/products">View Products</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
-        </ul>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
     </nav>
 </header>
-
-<div class="container">
-    <h2>Our Fresh Baked Goods</h2>
-    <p>Discover delicious treats and make your day sweeter.</p>
-</div>
-
+<main>
+    <h1>Delicious Baked Goods Delivered to You</h1>
+    <section id="product-list">
+        <!-- Products will be loaded here -->
+    </section>
+</main>
 <footer>
-    <p>&copy; 2025 Bakehouse Bakery. All rights reserved.</p>
+    &copy; 2025 Bakehouse. All rights reserved.
 </footer>
+<script src="js/script.js"></script>
 </body>
 </html>
