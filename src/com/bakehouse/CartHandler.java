@@ -4,8 +4,6 @@ package src.com.bakehouse;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
 import java.io.*;
-import java.nio.file.*;
-import java.util.*;
 
 public class CartHandler implements HttpHandler {
     private static final String CART_FILE = "cart.txt";
