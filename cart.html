@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+<header>
+  <h1>Cart</h1>
+</header>
+
+<main>
+  <table id="cartTable">
+    <thead>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody id="cart-items">
+    <!-- Cart items will populate here -->
+    </tbody>
+  </table>
+
+  <button id="checkout-button" onclick="window.location.href='checkout.html';">Proceed to Checkout</button>
+</main>
+
+<script src="js/cart.js"></script>
+</body>
+</html>
