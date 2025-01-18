@@ -1,5 +1,4 @@
-1,Baguette,3.00,Traditional French bread with a crispy crust.
-2,Croissant,2.50,Buttery and flaky pastry perfect for breakfast.
-3,Sourdough,4.00,Tangy and crusty artisan bread.
-4,Cinnamon Roll,2.80,Sweet roll with cinnamon and sugar filling.
-5,Chocolate Muffin,2.20,Rich chocolate muffin with chocolate chips.
+1|Moist Chocolate Cake|RM10.00|https://sugargeekshow.com/wp-content/uploads/2023/10/easy_chocolate_cake_slice-768x768.jpg
+2|Confetti Rainbow Cake|RM12.00|https://sallysbakingaddiction.com/wp-content/uploads/2015/05/funfetti-sprinkle-layer-cake-850x1276.jpg
+3|Chocolate Mousse Cake|RM13.00|https://www.thehungrybites.com/wp-content/uploads/2016/11/easy-chocolate-mousse-cake-2a-720x1080.jpg
+4|Red Velvet Cheese Cake|RM13.00|https://www.browneyedbaker.com/wp-content/uploads/2024/02/red-velvet-cheesecake-19-1200crop-754x998.jpg
