@@ -3,39 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage - BakeHouse</title>
-    <link rel="stylesheet" href="/css/homepage.css"> <!-- Link to homepage.css -->
+    <title>Bakery Shop</title>
+    <link rel="stylesheet" href="css/homepage.css"> <!-- Make sure the CSS file is linked -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- FontAwesome for icons -->
 </head>
 <body>
+
+<!-- Header -->
 <header>
+    <div class="logo">
+        <img src="img/logo.png" alt="Bakery Logo">
+    </div>
     <nav>
-        <div class="logo">
-            <a href="index.html"><img src="../img/logo.png" alt="BakeHouse Logo"></a>
-        </div>
         <ul class="nav-links">
-            <li><a href="index.html">Main</a></li>
-            <li><a href="products.html">Product</a></li>
-            <li><a href="login.html">Account</a></li>
-            <li>
-                <a href="cart.html" class="cart-link">
-                    <i class="fas fa-shopping-cart"></i> <!-- Cart icon -->
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutUs.html">About Us</a></li>
+            <li class="dropdown">
+                <a href="products.html">Product <i class="fa fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="products.html#cake">Cake</a></li>
+                    <li><a href="products.html#cookies">Cookies</a></li>
+                </ul>
+            </li>
+            <li class="cart-link">
+                <a href="cart.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="cart-count">0</span> <!-- Display count here -->
                 </a>
             </li>
         </ul>
     </nav>
 </header>
 
-<main>
-    <section class="hero">
-        <h1>Welcome to BakeHouse</h1>
-        <p>Delicious treats delivered fresh to your door.</p>
-        <a href="products.html" class="cta-button">Shop Now</a>
-    </section>
-</main>
+<!-- Announcement Section -->
+<div class="announcement-banner">
+    <p>
+        🎉 Grand Opening! We're excited to announce the launch of our new bakery. Join us for special discounts, delicious treats, and more in-store! 🥳 Opening on February 1st, 2025! 🎂
+    </p>
+</div>
 
+<!-- Advertisement Slider -->
+<div class="ad-slider">
+    <img src="https://www.southernliving.com/thmb/1nXApw4eCu0_IjJInCt3sDrVhSk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Monster_Cookies_010-2996b6446e834ad1b093ef08b6828160.jpg" alt="Advertisement 1">
+    <img src="https://www.lacherpatisserie.com/cdn/shop/files/cake.jpg?v=1728876091" alt="Advertisement 2">
+    <img src="https://media.istockphoto.com/id/623709028/photo/table-with-various-cookies-tarts-cakes-cupcakes-and-cakepops.jpg?s=612x612&w=0&k=20&c=NX-Ld03_GDHO77WjzzrUacReuoaXHajIXPsjdxgJDG8=" alt="Advertisement 3">
+    <img src="https://www.shutterstock.com/image-photo/table-various-cookies-donuts-cakes-600nw-2118716384.jpg" alt="Advertisement 4">
+
+    <!-- Slider Indicators -->
+    <div class="slider-indicators">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+
+
+<!-- About the Products -->
+<section id="cakes-cookies" class="cakes-cookies">
+    <h2>OUR CAKES & COOKIES</h2>
+    <p>
+        Dedicated to delighting your taste buds, we offer a selection of 10 types of cakes and 10 types of cookies, crafted with precision and love.
+        From rich, decadent chocolate cakes to light and airy sponge cakes, and from classic butter cookies to indulgent chocolate chip cookies, our offerings cater to every craving and occasion.
+    </p>
+</section>
+
+<!-- Best Sellers -->
+<section id="best-sellers" class="best-sellers">
+    <h2>Best Sellers</h2>
+    <div class="product">
+        <img src="product1.jpg" alt="Best Seller 1">
+        <h3>Chocolate Cake</h3>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="product2.jpg" alt="Best Seller 2">
+        <h3>Apple Pie</h3>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="product3.jpg" alt="Best Seller 3">
+        <h3>Fresh Breads</h3>
+        <button>Add to Cart</button>
+    </div>
+</section>
+
+
+<!-- Footer -->
 <footer>
-    <p>&copy; 2025 BakeHouse. All rights reserved.</p>
+    <div class="footer-content">
+        <!-- Social Media -->
+        <div class="social-media">
+            <h4>Follow Us</h4>
+            <a href="https://facebook.com/BakeHouse" class="facebook" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com/BakeHouse" class="instagram" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/BakeHouse" class="twitter" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#cakes-cookies">Our Cakes & Cookies</a></li>
+                <li><a href="#best-sellers">Best Sellers</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact">
+            <h4>Our Contact & Address</h4>
+            <p>Email: <a href="mailto:info@bakeryshop.com">info@bakeryshop.com</a></p>
+            <p>Phone: (+60)12-3456789</p>
+            <p>Address: BakeHouse by <strong>C&C</strong> Jalan Tanjung Tokong, 10470 Penang, Malaysia</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <img src="img/logo.png" alt="Bakery Logo" class="footer-logo" />
+        <p>© 2025 BakeHouse. All rights reserved. Unauthorized use or reproduction of any content on this website is prohibited.</p>
+    </div>
 </footer>
+
+
+
+<!-- Inline JavaScript -->
+<script>
+    let cartCount = 0; // This will track the number of items in the cart
+
+    // Function to add product to cart
+    function addToCart() {
+        cartCount++; // Increase the cart count by 1
+        updateCartCount(); // Update the display
+    }
+
+    // Function to update the cart count display
+    function updateCartCount() {
+        const cartCountElement = document.querySelector('.cart-count');
+        cartCountElement.textContent = cartCount; // Set the number in the cart count span
+    }
+
+    // Example usage: Call this function when the "Add to Cart" button is clicked
+    document.querySelectorAll('.product button').forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+</script>
+
+<!-- JavaScript for the slider -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll(".ad-slider img");
+        const dots = document.querySelectorAll(".slider-indicators .dot");
+        let currentIndex = 0;
+
+        // Function to switch to a specific slide
+        const goToSlide = (index) => {
+            slides.forEach((slide, i) => {
+                slide.classList.remove("active", "previous", "next");
+                dots[i].classList.remove("active");
+
+                if (i === index) {
+                    slide.classList.add("active");
+                    dots[i].classList.add("active");
+                } else if (i === (index - 1 + slides.length) % slides.length) {
+                    slide.classList.add("previous");
+                } else if (i === (index + 1) % slides.length) {
+                    slide.classList.add("next");
+                }
+            });
+            currentIndex = index;
+        };
+
+        // Function to go to the next slide
+        const nextSlide = () => {
+            const nextIndex = (currentIndex + 1) % slides.length;
+            goToSlide(nextIndex);
+        };
+
+        // Auto-slide every 1 seconds
+        let slideInterval = setInterval(nextSlide, 1000);
+
+        // Pause auto-slide on hover
+        const slider = document.querySelector(".ad-slider");
+        slider.addEventListener("mouseenter", () => clearInterval(slideInterval));
+        slider.addEventListener("mouseleave", () => slideInterval = setInterval(nextSlide, 5000));
+
+        // Add click event to dots
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                goToSlide(i);
+            });
+        });
+
+        // Initialize the first slide
+        goToSlide(currentIndex);
+    });
+
+</script>
+
+<script>
+    // Select all navigation links
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    // Add a click event listener to each link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Remove the active class from all links
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Add the active class to the clicked link
+            link.classList.add('active');
+        });
+    });
+
+</script>
+
+<script>
+    // Add interval to trigger slide animation
+    setInterval(() => {
+        const announcement = document.querySelector('.announcement-banner');
+        announcement.style.animation = 'none';  // Reset animation
+        void announcement.offsetWidth;  // Trigger reflow to restart the animation
+        announcement.style.animation = ''; // Reapply animation
+    }, 10000);  // Adjust the interval to your needs
+</script>
+
 </body>
 </html>

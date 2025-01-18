@@ -10,7 +10,7 @@ body {
 header {
     background-color: #6c4728; /* Pastel purple */
     padding: 2rem;
-    height: 50px; /* Set a fixed height */
+    height: 20px; /* Set a fixed height */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,6 +22,50 @@ header {
     height: 100px; /* Make the logo taller */
 }
 
+/* Keyframes for slide-in and out animation */
+@keyframes slideRightToLeft {
+    0% {
+        transform: translateX(100%); /* Start off screen to the right */
+    }
+    50% {
+        transform: translateX(0); /* Move to the center (pause) */
+    }
+    100% {
+        transform: translateX(-130%); /* Move off screen to the left */
+    }
+}
+
+/* Horizontal Announcement Banner */
+.announcement-banner {
+    background-color: #f9d6a5; /* Warm pastel orange */
+    color: #6c4728; /* Dark brown text */
+    text-align: center;
+    padding: 0.2rem 0; /* Adjust height */
+    font-size: 1rem; /* Font size for horizontal strip */
+    font-weight: bold;
+    width: 100%; /* Full width */
+    position: relative; /* Keeps it in flow with header */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Hide text when it's out of view */
+}
+
+/* Slide-in and out animation */
+.announcement-banner p {
+    display: inline-block;
+    white-space: nowrap;
+    animation: slideRightToLeft 20s linear infinite; /* Continuous movement */
+}
+
+.announcement-banner strong {
+    color: #2c1602; /* Slightly darker for emphasis */
+}
+
+.announcement-banner:hover {
+    background-color: #f5c58a; /* Slight hover effect */
+}
+
+
+
 nav {
     display: flex;
     align-items: center;
@@ -31,7 +75,7 @@ nav {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 80px;
     margin: 0;
     padding: 0;
     position: relative; /* Required for dropdown positioning */
@@ -86,20 +130,21 @@ nav {
     transition: color 0.3s;
 }
 
+
 .nav-links a:hover {
-    color: #6a0dad;
+    color: #2c1602;
 }
 
 
 /* Cart Icon Styling */
 .cart-link i {
-    font-size: 1.5rem;
-    color: #333;
+    font-size: 1.8rem;
+    color: #ffffff;
     transition: color 0.3s;
 }
 
 .cart-link i:hover {
-    color: #6a0dad;
+    color: #2c1602;
 }
 
 .cart-link {
@@ -110,7 +155,7 @@ nav {
     position: absolute;
     top: -10px;
     right: 15px;
-    background-color: #6a0dad;
+    background-color: #cda781;
     color: white;
     font-size: 1rem;
     width: 20px;
@@ -120,6 +165,33 @@ nav {
     justify-content: center;
     align-items: center;
     font-weight: bold;
+}
+
+/* Our Cakes & Cookies Section */
+.cakes-cookies {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #f9f1f1; /* Light background to match bakery vibes */
+}
+
+.cakes-cookies h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #6c4728; /* Dark brown to match the theme */
+    margin-bottom: 1rem;
+    border-top: 1px dotted #6c4728;
+    border-bottom: 1px dotted #6c4728;
+    display: inline-block;
+    padding: 0.5rem 0;
+}
+
+.cakes-cookies p {
+    font-size: 1.2rem;
+    color: #555; /* Neutral grey for readability */
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
 }
 
 
@@ -168,24 +240,28 @@ nav {
 .ad-slider img {
     position: absolute;
     top: 0;
-    left: 100%; /* Place images off-screen by default */
-    width: 100%; /* Full width */
+    left: 100%; /* Position images off-screen initially */
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s ease-in-out; /* Smooth slide animation */
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
 }
 
 .ad-slider img.active {
-    left: 0; /* Position active image within view */
-    transform: translateX(0); /* Move the active image into view */
+    left: 0;
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* No horizontal offset */
 }
 
 .ad-slider img.previous {
-    transform: translateX(-100%); /* Move previous image off to the left */
+    left: -100%; /* Move off-screen to the left */
+    transform: translateX(-100%);
 }
 
 .ad-slider img.next {
-    transform: translateX(100%); /* Move next image off to the right */
+    left: 100%; /* Move off-screen to the right */
+    transform: translateX(100%);
 }
 
 .slider-indicators {
@@ -207,54 +283,24 @@ nav {
 }
 
 .slider-indicators .dot.active {
-    background-color: #6a0dad; /* Highlight active indicator */
+    background-color: #51280f; /* Highlight active indicator */
 }
 
-
-
-/* Keyframe for sliding one way */
-@keyframes slide-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-/* Slider Indicators */
-.slider-indicators {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
-
-.slider-indicators .dot {
-    width: 10px;
-    height: 10px;
-    background-color: #ddd;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.slider-indicators .dot.active {
-    background-color: #6a0dad; /* Highlight active indicator */
-}
 
 
 /* About the Bakery Section */
-.about-bakery {
+.about-products {
     text-align: center;
     padding: 3rem 1rem;
     background-color: #f9f1f1;
 }
 
-.about-bakery h2 {
+.about-products h2 {
     color: #6c4728;
     font-size: 2rem;
 }
 
-.about-bakery p {
+.about-products p {
     color: #555;
     margin-top: 1rem;
     font-size: 1.2rem;
@@ -272,52 +318,104 @@ nav {
     font-size: 2rem;
 }
 
-.product {
-    display: inline-block;
-    width: 200px;
-    margin: 1rem;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    border-radius: 5px;
-}
-
-.product img {
-    width: 100%;
-    height: auto;
-}
-
-.product button {
-    background-color: #c37960;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 1rem;
-}
-
-.product button:hover {
-    background-color: #540a8f;
-}
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 1.5rem 1rem;
-    background-color: #333;
+    background-color: #6c4728; /* Dark brown for footer */
     color: #fff;
+    padding: 20px 0;
+    text-align: center;
 }
 
-footer .contact {
-    margin-top: 1rem;
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 0 8%;
+    text-align: center;
 }
 
-footer a {
+.footer-content div {
+    width: 30%; /* Each section takes up 1/3 of the space */
+}
+
+.social-media {
+    align-items: flex-start;
+    text-align: center;
+    margin: 3px 0;
+}
+
+.social-media a {
+    margin: 0 10px;
+    font-size: 24px;
     color: #fff;
     text-decoration: none;
 }
 
-footer a:hover {
-    color: #6a0dad;
+.social-media a.facebook:hover {
+    color: #3b5998;
+}
+
+.social-media a.instagram:hover {
+    color: #e4405f;
+}
+
+.social-media a.twitter:hover {
+    color: #1da1f2;
+}
+
+.footer-content > div {
+    text-align: center;
+}
+
+.quick-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quick-links li {
+    margin: 3px 0; /* Reduced margin */
+}
+
+.quick-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem; /* Reduced font size */
+}
+
+.quick-links a:hover {
+    color: #bc691f;
+}
+
+.contact p {
+    margin: 3px 0; /* Reduced margin */
+    font-size: 1rem; /* Reduced font size */
+}
+
+.contact a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem; /* Reduced font size */
+}
+
+.contact a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    margin-top: 10px; /* Reduced margin */
+    border-top: 1px solid #fff;
+    padding-top: 5px; /* Reduced padding */
+    text-align: center;
+    font-size: 1rem; /* Reduced font size */
+}
+
+.footer-logo {
+    display: block;
+    margin: 2px auto;
+    height: 80px; /* Reduced height */
+}
+
+html {
+    scroll-behavior: smooth;
 }

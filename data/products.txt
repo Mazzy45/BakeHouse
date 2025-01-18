@@ -1,5 +1,0 @@
-1,Baguette,3.00,Traditional French bread with a crispy crust.
-2,Croissant,2.50,Buttery and flaky pastry perfect for breakfast.
-3,Sourdough,4.00,Tangy and crusty artisan bread.
-4,Cinnamon Roll,2.80,Sweet roll with cinnamon and sugar filling.
-5,Chocolate Muffin,2.20,Rich chocolate muffin with chocolate chips.
