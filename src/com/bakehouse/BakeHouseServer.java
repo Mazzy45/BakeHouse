@@ -47,7 +47,11 @@ class StaticFileHandler implements HttpHandler {
         File file = new File(rootDirectory + requestedPath).getCanonicalFile();
         if (!file.exists() || !file.getPath().startsWith(new File(rootDirectory).getCanonicalPath())) {
             // File not found or outside root directory
-            exchange.sendResponseHeaders(404, -1);
+            String errorResponse = "<h1>404 Not Found</h1>";
+            exchange.sendResponseHeaders(404, errorResponse.length());
+            OutputStream os = exchange.getResponseBody();
+            os.write(errorResponse.getBytes());
+            os.close();
             return;
         }
 

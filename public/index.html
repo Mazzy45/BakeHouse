@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Shop</title>
+    <link rel="stylesheet" href="css/homepage.css"> <!-- Make sure the CSS file is linked -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- FontAwesome for icons -->
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo">
+        <img src="img/logo.png" alt="Bakery Logo">
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li class="dropdown">
+                <a href="#product">
+                    Product <i class="fa fa-chevron-down"></i> <!-- Add arrow -->
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#cake">Cake</a></li>
+                    <li><a href="#cookies">Cookies</a></li>
+                </ul>
+            </li>
+            <li><a href="#account">Account</a></li>
+            <li class="cart-link">
+                <a href="#cart">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="cart-count">0</span> <!-- Display count here -->
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<!-- Advertisement Slider -->
+<div class="ad-slider">
+    <img src="https://thumbs.dreamstime.com/b/horizontal-pink-cake-day-background-girly-copy-space-left-birthday-celebration-banner-cute-sweets-319393282.jpg" alt="Advertisement 1">
+    <img src="https://thumbs.dreamstime.com/b/horizontal-pink-cake-day-background-girly-copy-space-left-birthday-celebration-banner-cute-sweets-319393282.jpg" alt="Advertisement 2">
+    <img src="https://thumbs.dreamstime.com/b/horizontal-pink-cake-day-background-girly-copy-space-left-birthday-celebration-banner-cute-sweets-319393282.jpg" alt="Advertisement 3">
+
+    <!-- Slider Indicators -->
+    <div class="slider-indicators">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+
+
+<!-- About the Bakery -->
+<section class="about-bakery">
+    <h2>About Our Bakery</h2>
+    <p>We offer the finest and freshest pastries, baked with love and the highest quality ingredients. Come visit us for a delightful experience.</p>
+</section>
+
+<!-- Best Sellers -->
+<section class="best-sellers">
+    <h2>Best Sellers</h2>
+    <div class="product">
+        <img src="product1.jpg" alt="Best Seller 1">
+        <h3>Chocolate Cake</h3>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="product2.jpg" alt="Best Seller 2">
+        <h3>Apple Pie</h3>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="product3.jpg" alt="Best Seller 3">
+        <h3>Fresh Breads</h3>
+        <button>Add to Cart</button>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Bakery Shop</p>
+    <div class="contact">
+        <a href="mailto:contact@bakeryshop.com">Contact Us</a>
+    </div>
+</footer>
+
+<!-- Inline JavaScript -->
+<script>
+    let cartCount = 0; // This will track the number of items in the cart
+
+    // Function to add product to cart
+    function addToCart() {
+        cartCount++; // Increase the cart count by 1
+        updateCartCount(); // Update the display
+    }
+
+    // Function to update the cart count display
+    function updateCartCount() {
+        const cartCountElement = document.querySelector('.cart-count');
+        cartCountElement.textContent = cartCount; // Set the number in the cart count span
+    }
+
+    // Example usage: Call this function when the "Add to Cart" button is clicked
+    document.querySelectorAll('.product button').forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+</script>
+
+<!-- JavaScript for the slider -->
+<script>
+    const dots = document.querySelectorAll('.slider-indicators .dot');
+    const slider = document.querySelector('.ad-slider');
+    const images = slider.querySelectorAll('img');
+    let currentIndex = 0;
+
+    // Function to update active indicators and image classes
+    function updateSlider() {
+        images.forEach((img, index) => {
+            img.classList.remove('active', 'previous', 'next');
+            if (index === currentIndex) {
+                img.classList.add('active');
+            } else if (index === (currentIndex - 1 + images.length) % images.length) {
+                img.classList.add('previous');
+            } else if (index === (currentIndex + 1) % images.length) {
+                img.classList.add('next');
+            }
+        });
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    // Initial setup
+    updateSlider();
+
+    // Function to move to the next slide
+    function slideImages() {
+        currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+        updateSlider();
+    }
+
+    // Set up interval for automatic sliding
+    setInterval(slideImages, 3000);
+
+    // Add click event to dots for manual control
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateSlider();
+        });
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,323 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f5f1; /* Light beige for bakery vibes */
+}
+
+/* Header Styling */
+header {
+    background-color: #6c4728; /* Pastel purple */
+    padding: 2rem;
+    height: 50px; /* Set a fixed height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #ffff !important; /* Set header font color to white */
+}
+
+.logo img {
+    height: 100px; /* Make the logo taller */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* General nav styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Required for dropdown positioning */
+}
+
+.nav-links .dropdown {
+    position: relative;
+}
+
+.nav-links .dropdown-menu {
+    list-style: none;
+    position: absolute;
+    top: 100%; /* Position the menu below the parent link */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px 0;
+    display: none; /* Hide by default */
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure it appears above other elements */
+    border-radius: 5px;
+}
+
+.nav-links .dropdown-menu li {
+    padding: 10px 20px; /* Add padding between menu items */
+}
+
+.nav-links .dropdown-menu li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links .dropdown-menu li a:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+}
+
+/* Show the dropdown menu on hover */
+.nav-links .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Adjust link styles */
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #6a0dad;
+}
+
+
+/* Cart Icon Styling */
+.cart-link i {
+    font-size: 1.5rem;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.cart-link i:hover {
+    color: #6a0dad;
+}
+
+.cart-link {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background-color: #6a0dad;
+    color: white;
+    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 2rem;
+    background-color: #6c4728;
+    border-radius: 10px;
+    margin: 2rem;
+}
+
+.hero h1 {
+    color: #6c4728 !important;
+    font-size: 2.5rem;
+}
+
+.hero p {
+    color: #555;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 2rem;
+    background-color: #6c4728;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    background-color: #6c4728;
+}
+
+.ad-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Ensure it spans the container width */
+    height: 300px; /* Set your desired height */
+}
+
+.ad-slider img {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Place images off-screen by default */
+    width: 100%; /* Full width */
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease-in-out; /* Smooth slide animation */
+}
+
+.ad-slider img.active {
+    left: 0; /* Position active image within view */
+    transform: translateX(0); /* Move the active image into view */
+}
+
+.ad-slider img.previous {
+    transform: translateX(-100%); /* Move previous image off to the left */
+}
+
+.ad-slider img.next {
+    transform: translateX(100%); /* Move next image off to the right */
+}
+
+.slider-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.slider-indicators .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider-indicators .dot.active {
+    background-color: #6a0dad; /* Highlight active indicator */
+}
+
+
+
+/* Keyframe for sliding one way */
+@keyframes slide-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Slider Indicators */
+.slider-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.slider-indicators .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider-indicators .dot.active {
+    background-color: #6a0dad; /* Highlight active indicator */
+}
+
+
+/* About the Bakery Section */
+.about-bakery {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #f9f1f1;
+}
+
+.about-bakery h2 {
+    color: #6c4728;
+    font-size: 2rem;
+}
+
+.about-bakery p {
+    color: #555;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Best Seller Products Section */
+.best-sellers {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #9e7156;
+}
+
+.best-sellers h2 {
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+.product {
+    display: inline-block;
+    width: 200px;
+    margin: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product button {
+    background-color: #c37960;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.product button:hover {
+    background-color: #540a8f;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+footer .contact {
+    margin-top: 1rem;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #6a0dad;
+}
