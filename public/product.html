@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolate Cake - Add to Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Product: Chocolate Cake</h1>
+<p>Price: $15.00</p>
+
+<label for="quantity">Quantity:</label>
+<input type="number" id="quantity" name="quantity" min="1" value="1">
+<button onclick="addToCart()">Add to Cart</button>
+
+<script>
+    function addToCart() {
+        const productName = "Chocolate Cake";  // Example product
+        const price = 15.00;
+        const quantity = document.getElementById("quantity").value;
+
+        const formData = new URLSearchParams();
+        formData.append("productName", productName);
+        formData.append("price", price);
+        formData.append("quantity", quantity);
+
+        fetch("http://localhost:8080/addToCart", {
+            method: "POST",
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);  // Show success message
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    }
+</script>
+</body>
+</html>

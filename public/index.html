@@ -9,6 +9,7 @@
 </head>
 <body>
 
+
 <!-- Header -->
 <header>
     <div class="logo">
@@ -16,19 +17,16 @@
     </div>
     <nav>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li class="dropdown">
-                <a href="#product">
-                    Product <i class="fa fa-chevron-down"></i> <!-- Add arrow -->
-                </a>
+                <a href="products.html">Product <i class="fa fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#cake">Cake</a></li>
-                    <li><a href="#cookies">Cookies</a></li>
+                    <li><a href="products.html#cake">Cake</a></li>
+                    <li><a href="products.html#cookies">Cookies</a></li>
                 </ul>
             </li>
-            <li><a href="#account">Account</a></li>
             <li class="cart-link">
-                <a href="#cart">
+                <a href="cart.html">
                     <i class="fa fa-shopping-cart"></i>
                     <span class="cart-count">0</span> <!-- Display count here -->
                 </a>
@@ -38,11 +36,21 @@
 </header>
 
 
+<!-- Announcement Section -->
+<div class="announcement-banner">
+    <p>
+        🎉 Special Offer: Get 20% off on all cakes! Use code <strong>BAKE20</strong> at checkout. Offer valid until January 31st, 2025! 🎂
+    </p>
+</div>
+
+
 <!-- Advertisement Slider -->
 <div class="ad-slider">
-    <img src="https://thumbs.dreamstime.com/b/horizontal-pink-cake-day-background-girly-copy-space-left-birthday-celebration-banner-cute-sweets-319393282.jpg" alt="Advertisement 1">
-    <img src="https://thumbs.dreamstime.com/b/horizontal-pink-cake-day-background-girly-copy-space-left-birthday-celebration-banner-cute-sweets-319393282.jpg" alt="Advertisement 2">
-    <img src="https://thumbs.dreamstime.com/b/horizontal-pink-cake-day-background-girly-copy-space-left-birthday-celebration-banner-cute-sweets-319393282.jpg" alt="Advertisement 3">
+    <img src="https://www.southernliving.com/thmb/1nXApw4eCu0_IjJInCt3sDrVhSk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Monster_Cookies_010-2996b6446e834ad1b093ef08b6828160.jpg" alt="Advertisement 1">
+    <img src="https://www.lacherpatisserie.com/cdn/shop/files/cake.jpg?v=1728876091" alt="Advertisement 2">
+    <img src="https://media.istockphoto.com/id/623709028/photo/table-with-various-cookies-tarts-cakes-cupcakes-and-cakepops.jpg?s=612x612&w=0&k=20&c=NX-Ld03_GDHO77WjzzrUacReuoaXHajIXPsjdxgJDG8=" alt="Advertisement 3">
+    <img src="https://www.shutterstock.com/image-photo/table-various-cookies-donuts-cakes-600nw-2118716384.jpg" alt="Advertisement 4">
+
 
     <!-- Slider Indicators -->
     <div class="slider-indicators">
@@ -53,11 +61,17 @@
 </div>
 
 
-<!-- About the Bakery -->
-<section class="about-bakery">
-    <h2>About Our Bakery</h2>
-    <p>We offer the finest and freshest pastries, baked with love and the highest quality ingredients. Come visit us for a delightful experience.</p>
+
+
+<!-- About the Products -->
+<section class="cakes-cookies">
+    <h2>OUR CAKES & COOKIES</h2>
+    <p>
+        Dedicated to delighting your taste buds, we offer a selection of 10 types of cakes and 10 types of cookies, crafted with precision and love.
+        From rich, decadent chocolate cakes to light and airy sponge cakes, and from classic butter cookies to indulgent chocolate chip cookies, our offerings cater to every craving and occasion.
+    </p>
 </section>
+
 
 <!-- Best Sellers -->
 <section class="best-sellers">
@@ -79,6 +93,7 @@
     </div>
 </section>
 
+
 <!-- Footer -->
 <footer>
     <p>© 2025 Bakery Shop</p>
@@ -87,9 +102,11 @@
     </div>
 </footer>
 
+
 <!-- Inline JavaScript -->
 <script>
     let cartCount = 0; // This will track the number of items in the cart
+
 
     // Function to add product to cart
     function addToCart() {
@@ -97,11 +114,13 @@
         updateCartCount(); // Update the display
     }
 
+
     // Function to update the cart count display
     function updateCartCount() {
         const cartCountElement = document.querySelector('.cart-count');
         cartCountElement.textContent = cartCount; // Set the number in the cart count span
     }
+
 
     // Example usage: Call this function when the "Add to Cart" button is clicked
     document.querySelectorAll('.product button').forEach(button => {
@@ -109,12 +128,14 @@
     });
 </script>
 
+
 <!-- JavaScript for the slider -->
 <script>
     const dots = document.querySelectorAll('.slider-indicators .dot');
     const slider = document.querySelector('.ad-slider');
     const images = slider.querySelectorAll('img');
     let currentIndex = 0;
+
 
     // Function to update active indicators and image classes
     function updateSlider() {
@@ -129,13 +150,16 @@
             }
         });
 
+
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === currentIndex);
         });
     }
 
+
     // Initial setup
     updateSlider();
+
 
     // Function to move to the next slide
     function slideImages() {
@@ -143,8 +167,10 @@
         updateSlider();
     }
 
+
     // Set up interval for automatic sliding
     setInterval(slideImages, 3000);
+
 
     // Add click event to dots for manual control
     dots.forEach((dot, index) => {
@@ -154,7 +180,41 @@
         });
     });
 
+
 </script>
+
+
+<script>
+    // Select all navigation links
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+
+    // Add a click event listener to each link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Remove the active class from all links
+            navLinks.forEach(link => link.classList.remove('active'));
+
+
+            // Add the active class to the clicked link
+            link.classList.add('active');
+        });
+    });
+
+
+</script>
+
+
+<script>
+    // Add interval to trigger slide animation
+    setInterval(() => {
+        const announcement = document.querySelector('.announcement-banner');
+        announcement.style.animation = 'none';  // Reset animation
+        void announcement.offsetWidth;  // Trigger reflow to restart the animation
+        announcement.style.animation = ''; // Reapply animation
+    }, 10000);  // Adjust the interval to your needs
+</script>
+
 
 </body>
 </html>

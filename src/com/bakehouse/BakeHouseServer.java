@@ -3,27 +3,22 @@ package src.com.bakehouse;
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
-
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.nio.file.Files;
+import java.net.URLDecoder;
+import java.util.*;
 
 public class BakeHouseServer {
     public static void main(String[] args) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
-        // Serve static files
+        // Serve static files (e.g., the product page)
         server.createContext("/", new StaticFileHandler("public"));
 
-        // Additional APIs
-        server.createContext("/api/data", exchange -> {
-            String jsonResponse = "{\"message\": \"Welcome to BakeHouse!\"}";
-            exchange.getResponseHeaders().add("Content-Type", "application/json");
-            exchange.sendResponseHeaders(200, jsonResponse.getBytes().length);
-            OutputStream os = exchange.getResponseBody();
-            os.write(jsonResponse.getBytes());
-            os.close();
-        });
+        // Add Cart Handlers
+        server.createContext("/addToCart", new CartHandler.AddToCartHandler());
+        server.createContext("/viewCart", new CartHandler.ViewCartHandler());
 
         System.out.println("Server is running on http://localhost:8080");
         server.start();
@@ -68,3 +63,4 @@ class StaticFileHandler implements HttpHandler {
         os.close();
     }
 }
+

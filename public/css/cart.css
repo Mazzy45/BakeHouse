@@ -1,0 +1,73 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 120px;
+    background-color: #f7ede2; /* Light brown background */
+}
+
+h1 {
+    text-align: center;
+    color: #6b4226; /* Darker brown for title */
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #d9cab3; /* Subtle border color */
+}
+
+th {
+    background-color: #deb887; /* Light brown header */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f4ef; /* Alternate row background */
+}
+
+tr:hover {
+    background-color: #f0e3d0; /* Highlight row on hover */
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #b08968; /* Medium brown button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #6b4226; /* Darker brown on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #deb887;
+    color: white;
+    font-size: 0.9em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
