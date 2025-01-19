@@ -183,7 +183,9 @@
     console.log(`Added product with ID ${productId} to cart`);
   }
   // Run the function to fetch and display products when the page loads
+  window.onload = updateCartCount;
   window.onload = fetchAndDisplayProducts;
+
 </script>
 </body>
 </html>
