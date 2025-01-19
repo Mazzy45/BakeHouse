@@ -262,13 +262,16 @@ button:hover {
 }
 
 /* QR Code Section */
-#qr-code {
+#qrCodeContainer {
     text-align: center;
     margin-top: 20px;
 }
 
-#qr-code img {
-    margin-top: 10px;
+
+#qrCode {
+    width: auto; /* Automatically adjust width */
+    height: auto; /* Automatically adjust height */
+    max-width: 300px; /* Set a maximum size for the QR code */
     border: 1px solid #d4b89f;
     border-radius: 5px;
     padding: 5px;

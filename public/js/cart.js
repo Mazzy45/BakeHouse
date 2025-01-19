@@ -5,28 +5,33 @@ function loadCart() {
     const totalPriceElement = document.getElementById('total-price');
     cartContainer.innerHTML = '';
 
+
     let totalPrice = 0;
+
 
     cart.forEach((item, index) => {
         // Ensure valid data
         const price = parseFloat(item.price) || 0;
         const quantity = parseInt(item.quantity) || 1; // Default quantity to 1 if invalid
 
+
         const productRow = `
-      <tr>
-        <td>${item.name || 'Undefined'}</td>
-        <td>RM ${price.toFixed(2)}</td>
-        <td>${quantity}</td>
-        <td>RM ${(price * quantity).toFixed(2)}</td>
-        <td><button class="remove-btn" onclick="removeFromCart(${index})">Remove</button></td>
-      </tr>
-    `;
+     <tr>
+       <td>${item.name || 'Undefined'}</td>
+       <td>RM ${price.toFixed(2)}</td>
+       <td>${quantity}</td>
+       <td>RM ${(price * quantity).toFixed(2)}</td>
+       <td><button class="remove-btn" onclick="removeFromCart(${index})">Remove</button></td>
+     </tr>
+   `;
         cartContainer.innerHTML += productRow;
         totalPrice += price * quantity;
     });
 
+
     totalPriceElement.textContent = `RM ${totalPrice.toFixed(2)}`;
 }
+
 
 // Remove item from cart
 function removeFromCart(index) {
@@ -38,6 +43,7 @@ function removeFromCart(index) {
     }
 }
 
+
 // Clear entire cart
 function clearCart() {
     if (confirm('Are you sure you want to clear the entire cart?')) {
@@ -46,10 +52,12 @@ function clearCart() {
     }
 }
 
+
 function redirectToCheckout() {
     // Redirect the user to the checkout page
     window.location.href = 'checkout.html';
 }
+
 
 // Initialize cart on page load
 window.onload = function () {

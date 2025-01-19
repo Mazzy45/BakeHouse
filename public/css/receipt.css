@@ -20,6 +20,7 @@ p {
 }
 
 section {
+    font-family: 'Lora', serif;
     margin: 20px auto;
     padding: 20px;
     max-width: 600px;

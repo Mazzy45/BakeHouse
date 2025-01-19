@@ -59,18 +59,21 @@
     </tfoot>
   </table>
 
+  <!-- Checkout Form -->
   <form id="checkout-form">
     <!-- Pickup Information -->
     <h3>Pickup Information</h3>
     <div class="form-section">
       <label for="pickupAddress">Pickup Address:</label>
-      <p id="pickupAddress">123 Bakery Lane, Sweetville</p>
+      <p id="pickupAddress">BakeHouse by C&C Jalan Tanjung Tokong, 10470 Penang, Malaysia</p>
+
 
       <label for="pickupDate">Pickup Date:</label>
       <input type="date" id="pickupDate" name="pickupDate" required>
 
+
       <label for="pickupTime">Pickup Time:</label>
-      <input type="time" id="pickupTime" name="pickupTime" min="10:00" max="22:00" required>
+      <input type="time" id="pickupTime" name="pickupTime" required>
     </div>
 
     <!-- Contact Information -->
@@ -87,23 +90,35 @@
 
     </div>
 
-    <!-- Payment Information -->
+    <   <!-- Payment Information -->
     <h3>Payment Information</h3>
     <div class="form-section">
       <label for="paymentMethod">Payment Method:</label>
-      <select id="paymentMethod" name="paymentMethod">
+      <select id="paymentMethod" name="paymentMethod" required>
+        <option value="" disabled selected>Select a payment method</option>
         <option value="duitnow">DuitNow</option>
         <option value="tng">Touch 'n Go</option>
       </select>
+    </div>
 
+
+    <!-- QR Code Section -->
+    <div id="qrCodeContainer" class="form-section" style="display: none;">
+      <h3>Your Payment QR Code</h3>
+      <img id="qrCodeImage" alt="QR Code" style="width: 200px; height: 300px;" />
+    </div>
+
+    <!-- Upload Receipt -->
+    <div class="form-section">
       <label for="paymentReceipt">Upload Payment Receipt:</label>
       <input type="file" id="paymentReceipt" name="paymentReceipt" accept="image/*,application/pdf" required>
     </div>
 
+
     <!-- Buttons -->
     <div class="form-buttons">
       <button type="submit" id="confirmPayment">Confirm Payment</button>
-      <button type="button" id="cancelOrder">Cancel</button>
+      <button type="button" id="cancelOrder" onclick="window.location.href='products.html';">Cancel</button>
     </div>
   </form>
 </section>
