@@ -1,6 +1,6 @@
 /* General body styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Playfair Display', serif;
     margin: 0;
     padding: 0;
     background-color: #f8f5f1; /* Light beige for bakery vibes */
@@ -316,6 +316,7 @@ nav {
 
 /* Footer */
 footer {
+    font-family: 'Roboto Slab', serif;
     background-color: #6c4728; /* Dark brown for footer */
     color: #fff;
     padding: 20px 0;

@@ -1,6 +1,6 @@
 /* General body styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Playfair Display', serif;
     margin: 0;
     padding: 0;
     background-color: #f8f5f1; /* Light beige for bakery vibes */
@@ -181,6 +181,7 @@ h2, h3 {
 }
 
 .product-card {
+    font-family: 'Lora', serif;
     background-color: #f4f4f4;
     margin: 15px;
     padding: 20px;
@@ -213,7 +214,7 @@ h2, h3 {
 }
 
 .product-card .btn {
-    background-color: #5cb85c;
+    background-color: #ff6f61;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -224,11 +225,12 @@ h2, h3 {
 }
 
 .product-card .btn:hover {
-    background-color: #4cae4c;
+    background-color: #e65b50;
 }
 
 /* Footer */
 footer {
+    font-family: 'Roboto Slab', serif;
     background-color: #6c4728; /* Dark brown for footer */
     color: #fff;
     padding: 20px 0;
