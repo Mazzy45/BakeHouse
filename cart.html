@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - Bakery Shop</title>
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+<!-- Cart Section -->
+<section id="cart-section">
+  <h2>Cart</h2>
+  <table id="cart-table">
+    <thead>
+    <tr>
+      <th>PRODUCT</th>
+      <th>PRICE</th>
+      <th>QUANTITY</th>
+      <th>TOTAL</th>
+      <th>ACTION</th>
+    </tr>
+    </thead>
+    <tbody id="cart-items">
+    <!-- Cart items will be dynamically loaded here -->
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="3"></td>
+      <td>Total</td>
+      <td id="total-price">RM 0</td>
+    </tr>
+    </tfoot>
+  </table>
+  <button id="checkout-btn" onclick="redirectToCheckout()">Proceed to Checkout</button>
+  <button id="clear-cart-btn">Clear Cart</button>
+</section>
+
+<script src="js/cart.js"></script>
+
+</body>
+</html>

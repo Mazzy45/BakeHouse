@@ -1,0 +1,93 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5e6cc;
+    color: #5d4037;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+#cart-section {
+    padding: 20px;
+    text-align: center;
+}
+
+#cart-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#cart-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#cart-table th,
+#cart-table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#cart-table th {
+    background-color: #d7b08a;
+    color: #5d4037;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#cart-table tfoot td {
+    font-weight: bold;
+}
+
+#total-price {
+    text-align: right;
+}
+
+#checkout-btn {
+    background-color: #d7b08a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#checkout-btn:hover {
+    background-color: #b7895a;
+}
+
+/* Styling for the Remove button */
+.remove-btn {
+    background-color: #e57373;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: #d32f2f;
+}

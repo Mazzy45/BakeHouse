@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Bakery Shop</title>
+  <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+<section id="checkout-section">
+  <h2>Checkout</h2>
+
+  <!-- Cart Review -->
+  <table id="checkoutTable">
+    <thead>
+    <tr>
+      <th>PRODUCT</th>
+      <th>PRICE</th>
+      <th>QUANTITY</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Dynamically populated cart -->
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="2">Total</td>
+      <td id="totalPrice">RM 0.00</td>
+    </tr>
+    </tfoot>
+  </table>
+
+  <form id="checkout-form">
+    <!-- Pickup Information -->
+    <h3>Pickup Information</h3>
+    <div class="form-section">
+      <label for="pickupAddress">Pickup Address:</label>
+      <p id="pickupAddress">123 Bakery Lane, Sweetville</p>
+
+      <label for="pickupDate">Pickup Date:</label>
+      <input type="date" id="pickupDate" name="pickupDate" required>
+
+      <label for="pickupTime">Pickup Time:</label>
+      <input type="time" id="pickupTime" name="pickupTime" min="10:00" max="22:00" required>
+    </div>
+
+    <!-- Contact Information -->
+    <h3>Contact Information</h3>
+    <div class="form-section">
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g., 012-3456789" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="example@email.com" required>
+
+    </div>
+
+    <!-- Payment Information -->
+    <h3>Payment Information</h3>
+    <div class="form-section">
+      <label for="paymentMethod">Payment Method:</label>
+      <select id="paymentMethod" name="paymentMethod">
+        <option value="duitnow">DuitNow</option>
+        <option value="tng">Touch 'n Go</option>
+      </select>
+
+      <label for="paymentReceipt">Upload Payment Receipt:</label>
+      <input type="file" id="paymentReceipt" name="paymentReceipt" accept="image/*,application/pdf" required>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-buttons">
+      <button type="submit" id="confirmPayment">Confirm Payment</button>
+      <button type="button" id="cancelOrder">Cancel</button>
+    </div>
+  </form>
+</section>
+
+<script src="js/qrcode.min.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>
