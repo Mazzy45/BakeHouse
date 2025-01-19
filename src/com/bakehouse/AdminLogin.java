@@ -31,7 +31,7 @@ public class AdminLogin implements HttpHandler {
 
             if (validUsernames.contains(username) && validPassword.equals(password)) {
                 // Successful login: redirect to Admin Dashboard
-                exchange.getResponseHeaders().add("Location", "/admindashboard.html");
+                exchange.getResponseHeaders().add("Location", "/adminDashboard.html");
                 exchange.sendResponseHeaders(302, -1);
             } else {
                 // Invalid login: show error message on login page
@@ -44,7 +44,7 @@ public class AdminLogin implements HttpHandler {
             }
         } else {
             // Show login page for GET requests
-            String loginPage = Files.readString(Paths.get("adminlogin.html"));
+            String loginPage = Files.readString(Paths.get("adminLogin.html"));
             exchange.sendResponseHeaders(200, loginPage.getBytes().length);
             OutputStream os = exchange.getResponseBody();
             os.write(loginPage.getBytes());
