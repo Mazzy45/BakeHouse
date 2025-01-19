@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <script>
+    // JavaScript function to validate login credentials
+    function validateLogin(event) {
+      event.preventDefault();  // Prevent the form from submitting
+
+      // Get the username and password input values
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // List of valid usernames and the correct password
+      const validUsernames = ["Mazzy45", "IzzMai", "ctmaikz", "harini00"];
+      const validPassword = "Admin123";
+
+      // Get the error message element
+      const errorMessage = document.getElementById("errorMessage");
+
+      // Initially hide the error message
+      errorMessage.style.display = "none";
+
+      // Check if the username is valid and password matches
+      if (validUsernames.includes(username) && password === validPassword) {
+        // If valid, redirect to Admin Dashboard
+        window.location.href = "admindashboard.html";  // Redirect to dashboard page
+      } else {
+        // If invalid, display error message
+        errorMessage.style.display = "block";
+      }
+    }
+  </script>
+</head>
+<body>
+<h1>Admin Login    </h1>
+
+<form onsubmit="validateLogin(event)">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required><br><br>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required><br><br>
+
+  <button type="submit">Login</button>
+</form>
+
+<!-- Error message that will only be shown when login is invalid -->
+<div id="errorMessage" style="color: red; display: none;">
+  <p>Invalid Username or Password. Please try again.</p>
+</div>
+</body>
+</html>

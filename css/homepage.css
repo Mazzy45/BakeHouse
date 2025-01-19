@@ -530,3 +530,21 @@ html {
 .product:hover .description {
     display: block;
 }
+
+.admin-login {
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.admin-login a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.admin-login a:hover {
+    color: #f39c12;
+}

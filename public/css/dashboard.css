@@ -1,0 +1,105 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+h1 {
+    color: #5c3c13;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #855e36;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.8em;
+    font-weight: normal;
+}
+
+/* Style for the table */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    word-wrap: break-word;
+}
+
+th {
+    background-color: #5c3c13;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+td {
+    color: #855e36;
+    border-bottom: 1px solid #dee2e6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+th:first-child, td:first-child {
+    width: 15%; /* Wider Product ID column */
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: 10%; /* Smaller Price column */
+}
+
+th:last-child, td:last-child {
+    width: 35%; /* Fixed width for the image column */
+    text-align: center;
+}
+
+/* Add alternating row colors */
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Add hover effect for rows */
+tr:hover {
+    background-color: #d5b48d;
+    transition: background-color 0.3s ease;
+}
+
+/* Style for images inside the table */
+td img {
+    width: 100px; /* Fixed width for images */
+    height: 100px; /* Fixed height for images */
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+/* Center the table on the page */
+table {
+    border-spacing: 0;
+    overflow: hidden;
+}
+
+/* Add a smooth scroll effect for better UX */
+html {
+    scroll-behavior: smooth;
+}

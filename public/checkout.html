@@ -165,6 +165,20 @@
   </div>
 </footer>
 
+<script>
+  // Function to update cart count in the header
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCountElement = document.querySelector('.cart-count');
+    if (cartCountElement) {
+      cartCountElement.textContent = cart.length;
+    }
+  }
+
+  // Call the function to update the count on page load
+  updateCartCount();
+</script>
+
 <script src="js/qrcode.min.js"></script>
 <script src="js/checkout.js"></script>
 </body>
