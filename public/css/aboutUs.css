@@ -198,6 +198,25 @@ nav {
     padding: 20px;
 }
 
+/* Hidden state for animation */
+.section {
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(50px); /* Start slightly below */
+    transition: all 0.6s ease-out; /* Smooth animation */
+}
+
+.section:first-of-type {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Visible state for animation */
+.section.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Return to original position */
+}
+
+
 .section {
     display: flex;
     align-items: center;
