@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Shop - Products</title>
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="logo">
+        <img src="img/logo.png" alt="Bakery Logo">
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutUs.html">About Us</a></li>
+            <li class="dropdown">
+                <a href="#products">Products <i class="fa fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#cake-section">Cakes</a></li>
+                    <li><a href="#cookie-section">Cookies</a></li>
+                </ul>
+            </li>
+            <li class="cart-link">
+                <a href="cart.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="cart-count">0</span> <!-- Display count here -->
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Cake and Cookie Product Sections -->
+<section id="cake-section">
+    <h2>Cakes</h2>
+    <div class="product-grid" id="cake-products">
+        <!-- Cake products will be populated by the server -->
+    </div>
+</section>
+<section id="cookie-section">
+    <h2>Cookies</h2>
+    <div class="product-grid" id="cookie-products">
+        <!-- Cookie products will be populated by the server -->
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Bakery Shop</p>
+    <div class="contact">
+        <a href="mailto:contact@bakeryshop.com">Contact Us</a>
+    </div>
+</footer>
+
+<!-- JavaScript to Handle Smooth Scrolling -->
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+
+<!-- Inline JavaScript -->
+<script>
+    // Initialize cart count
+    let cartCount = 0;
+
+    // Update cart count
+    function updateCartCount() {
+        const cartCountElement = document.querySelector('.cart-count');
+        cartCountElement.textContent = cartCount;
+    }
+
+    // Function to handle "Add to Cart"
+    function addToCart(productId, productName, productPrice) {
+        cartCount++;
+        updateCartCount();
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const product = {
+            productId: productId,
+            name: productName,
+            price: productPrice
+        };
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Fetch products from server-side CSV and display them
+    function fetchAndDisplayProducts() {
+        fetch('products.csv')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch products CSV file');
+                }
+                return response.text();
+            })
+            .then(csvData => {
+                parseCSV(csvData);
+            })
+            .catch(error => {
+                console.error("Error fetching CSV data:", error);
+            });
+    }
+
+    // Parse CSV data and render products
+    function parseCSV(csvData) {
+        const rows = csvData.split('\n');
+        const cakeContainer = document.getElementById('cake-products');
+        const cookieContainer = document.getElementById('cookie-products');
+        rows.forEach((row, index) => {
+            if (index === 0) return;
+            const columns = row.split(',');
+            if (columns.length !== 6) {
+                console.error("Invalid row detected, skipping:", row);
+                return;
+            }
+            const [typecode, id, type, name, price, imageUrl] = columns;
+            if (typecode === '2') {
+                const cakeHTML = `
+                        <div class="product-card">
+                            <img src="${imageUrl}" alt="${name}">
+                            <h3>${name}</h3>
+                            <p>8' whole cake: RM ${price}</p>
+                            <button class="btn" onclick="addToCart(${id}, '${name}', '${price}')">Add to Cart</button>
+                        </div>
+                    `;
+                cakeContainer.innerHTML += cakeHTML;
+            } else if (typecode === '1') {
+                const cookieHTML = `
+                        <div class="product-card">
+                            <img src="${imageUrl}" alt="${name}">
+                            <h3>${name}</h3>
+                            <p>25 pieces: RM ${price}</p>
+                            <button class="btn" onclick="addToCart(${id}, '${name}', '${price}')">Add to Cart</button>
+                        </div>
+                    `;
+                cookieContainer.innerHTML += cookieHTML;
+            }
+        });
+    }
+
+    window.onload = fetchAndDisplayProducts;
+</script>
+</body>
+</html>
