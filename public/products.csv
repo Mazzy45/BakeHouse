@@ -2,10 +2,10 @@ TYPECODE,ID,TYPE,NAME,PRICE,IMAGEURL
 1,001,Cookie,Choco Thumbprint Cookies,28.00,https://www.lifeloveandsugar.com/wp-content/uploads/2022/12/Chocolate-Thumbprint-Cookies3-800x1200.jpg
 1,002,Cookie,Oreo Crunchy,23.00,https://mamasabbakery.com.my/wp-content/uploads/2022/01/Crunchy-Oreo8.jpeg
 1,003,Cookie,Coconut Cookies,19.00,https://i.imgur.com/hcvckHW.jpg
-1,004,Cookie,S'Mores Cookies,28.00,https://handletheheat.com/wp-content/uploads/2023/12/Smores-Cookies-SQUARE-768x768.jpg
+1,004,Cookie,S'Mores Cookies,28.00,https://www.cookingclassy.com/wp-content/uploads/2012/11/smores+cookies+3.jpg
 1,005,Cookie,Choco Chip Cookies,20.00,https://www.recipetineats.com/tachyon/2017/06/Soft-Chocolate-Chip-Cookies-3.jpg?resize=1200%2C1680&zoom=0.67
 1,006,Cookie,Butter Cookies,21.00,https://cloudykitchen.com/wp-content/uploads/2023/12/fresh-butter-cookies-1-720x1079.jpg
-1,007,Cookie,Red Velvet Cookies,23.00,https://sallysbakingaddiction.com/wp-content/uploads/2013/12/red-velvet-cookies-2-1024x1536.jpg
+1,007,Cookie,Red Velvet Cookies,25.00,https://sallysbakingaddiction.com/wp-content/uploads/2013/12/red-velvet-cookies-2-1024x1536.jpg
 1,008,Cookie,Peanut Butter Cookies,24.00,https://www.bhg.com/thmb/JuEfTJbonF0pQsEr7VuFIEz1Jp4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/bhg-recipe-cookies-peanut-butter-cookies-Hero-01-6dc51e3bf14545f9b897ae557ffad3c9.jpg
 1,009,Cookie,Oat Cranberry Cookies,26.00,https://sallysbakingaddiction.com/wp-content/uploads/2021/12/soft-white-chocolate-cranberry-cookies-1024x1536.jpg
 1,010,Cookie,Maple Pecan Cookies,28.00,https://whatmollymade.com/wp-content/uploads/2021/11/maple-pecan-cookies-1-768x1152.jpg
@@ -15,7 +15,7 @@ TYPECODE,ID,TYPE,NAME,PRICE,IMAGEURL
 2,002,Cake,Confetti Rainbow Cake,60.00,https://www.thecookierookie.com/wp-content/uploads/2021/07/funfetti-cake-recipe-4-768x1152.jpg
 2,003,Cake,Red Velvet Cheese Cake,70.00,https://www.browneyedbaker.com/wp-content/uploads/2024/02/red-velvet-cheesecake-19-1200crop-754x998.jpg
 2,004,Cake,Chocolate Mousse Cake,70.00,https://richanddelish.com/wp-content/uploads/2024/04/chocolate-mousse-cake-10-of-14-683x1024.jpg
-2,005,Cake,Tiramisu Cheese Cake,75.00,https://thebananadiaries.com/wp-content/uploads/2023/08/tiramisu-cheesecake-recipe_7425-700x1050.jpg
+2,005,Cake,Tiramisu Cheese Cake,75.00,https://richanddelish.com/wp-content/uploads/2023/10/tiramisu-cheesecake-14-of-20-683x1024.jpg
 2,006,Cake,Carrot Cake,60.00,https://www.cookinwithmima.com/wp-content/uploads/2021/11/Best-Moist-Carrot-Cake-1154x1536.jpg
 2,007,Cake,Pandan Swiss Roll,20.00,https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkN_nAzc275AsYSH_kyH-hZNqqJXSgcNvsZS8eUjalGgdPB3VMt_Z5IyHNmTdw0Df2Dv5MiksfB9xtzk_pM8__6h1uLrtmB8doFpIGRw2ELA3ddyrmow6weGCUg2JAZse550_c2bUFibk/s640/IMG_8835.1.JPG
 2,008,Cake,Mocha Swiss Roll,25.00,https://i0.wp.com/mamalolacooks.com/wp-content/uploads/2021/10/BADF9A1D-F13D-47A6-99FB-0C2B3B4D5BDA.jpeg?resize=750%2C794&ssl=1
