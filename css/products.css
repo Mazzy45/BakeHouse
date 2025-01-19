@@ -41,6 +41,22 @@ nav {
     position: relative;
 }
 
+.nav-links .dropdown-menu {
+    list-style: none;
+    position: absolute;
+    top: 100%; /* Position the menu below the parent link */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px 0;
+    display: none; /* Hide by default */
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure it appears above other elements */
+    border-radius: 5px;
+}
+
+
 .nav-links .dropdown-menu li {
     padding: 10px 20px; /* Add padding between menu items */
 }
@@ -211,12 +227,103 @@ h2, h3 {
     background-color: #4cae4c;
 }
 
+/* Footer */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #6c4728; /* Dark brown for footer */
+    color: #fff;
+    padding: 20px 0;
     text-align: center;
-    padding: 15px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 0 8%;
+    text-align: center;
+}
+
+.footer-content div {
+    width: 30%; /* Each section takes up 1/3 of the space */
+}
+
+.social-media {
+    align-items: flex-start;
+    text-align: center;
+    margin: 3px 0;
+}
+
+.social-media a {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.social-media a.facebook:hover {
+    color: #3b5998;
+}
+
+.social-media a.instagram:hover {
+    color: #e4405f;
+}
+
+.social-media a.twitter:hover {
+    color: #1da1f2;
+}
+
+.footer-content > div {
+    text-align: center;
+}
+
+.quick-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quick-links li {
+    margin: 3px 0; /* Reduced margin */
+}
+
+.quick-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem; /* Reduced font size */
+}
+
+.quick-links a:hover {
+    color: #bc691f;
+}
+
+.contact p {
+    margin: 3px 0; /* Reduced margin */
+    font-size: 1rem; /* Reduced font size */
+}
+
+.contact a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem; /* Reduced font size */
+}
+
+.contact a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    margin-top: 10px; /* Reduced margin */
+    border-top: 1px solid #fff;
+    padding-top: 5px; /* Reduced padding */
+    text-align: center;
+    font-size: 1rem; /* Reduced font size */
+}
+
+.footer-logo {
+    display: block;
+    margin: 2px auto;
+    height: 80px; /* Reduced height */
+}
+
+html {
+    scroll-behavior: smooth;
 }

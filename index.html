@@ -18,13 +18,7 @@
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="aboutUs.html">About Us</a></li>
-            <li class="dropdown">
-                <a href="products.html">Product <i class="fa fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="products.html#cake">Cake</a></li>
-                    <li><a href="products.html#cookies">Cookies</a></li>
-                </ul>
-            </li>
+            <li><a href="products.html">Products</a></li> <!-- Link to products page -->
             <li class="cart-link">
                 <a href="cart.html">
                     <i class="fa fa-shopping-cart"></i>
@@ -47,7 +41,7 @@
     <img src="https://www.southernliving.com/thmb/1nXApw4eCu0_IjJInCt3sDrVhSk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Monster_Cookies_010-2996b6446e834ad1b093ef08b6828160.jpg" alt="Advertisement 1">
     <img src="https://www.lacherpatisserie.com/cdn/shop/files/cake.jpg?v=1728876091" alt="Advertisement 2">
     <img src="https://media.istockphoto.com/id/623709028/photo/table-with-various-cookies-tarts-cakes-cupcakes-and-cakepops.jpg?s=612x612&w=0&k=20&c=NX-Ld03_GDHO77WjzzrUacReuoaXHajIXPsjdxgJDG8=" alt="Advertisement 3">
-    <img src="https://www.shutterstock.com/image-photo/table-various-cookies-donuts-cakes-600nw-2118716384.jpg" alt="Advertisement 4">
+    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/63/40/a1/cakes-at-ganache-patisserie.jpg?w=1600&h=-1&s=1" alt="Advertisement 4">
 
     <!-- Slider Indicators -->
     <div class="slider-indicators">
@@ -56,6 +50,14 @@
         <span class="dot"></span>
         <span class="dot"></span>
     </div>
+
+    <!-- Navigation Buttons -->
+    <button class="slider-btn prev-btn" onclick="handlePrev()">
+        &#10094; <!-- Left arrow for Previous (‹) -->
+    </button>
+    <button class="slider-btn next-btn" onclick="handleNext()">
+        &#10095; <!-- Right arrow for Next (›) -->
+    </button>
 </div>
 
 
@@ -67,27 +69,50 @@
         From rich, decadent chocolate cakes to light and airy sponge cakes, and from classic butter cookies to indulgent chocolate chip cookies, our offerings cater to every craving and occasion.
     </p>
 </section>
-
 <!-- Best Sellers -->
 <section id="best-sellers" class="best-sellers">
     <h2>Best Sellers</h2>
     <div class="product">
-        <img src="product1.jpg" alt="Best Seller 1">
-        <h3>Chocolate Cake</h3>
-        <button>Add to Cart</button>
+        <img src="img/bestcake1.jpg" alt="Best Seller 1">
+        <div class="description">
+            <p>This decadent chocolate mousse cake is rich and creamy, perfect for chocolate lovers!</p>
+        </div>
+        <h3>Chocolate Mousse Cake</h3>
+        <a href="products.html">
+            <button>Shop Now</button>
+        </a>
     </div>
     <div class="product">
-        <img src="product2.jpg" alt="Best Seller 2">
-        <h3>Apple Pie</h3>
-        <button>Add to Cart</button>
+        <img src="img/bestcake2.jpg" alt="Best Seller 2">
+        <div class="description">
+            <p>A perfect blend of coffee, cheese, and chocolate in every bite.</p>
+        </div>
+        <h3>Tiramisu Cheese Cake</h3>
+        <a href="products.html">
+            <button>Shop Now</button>
+        </a>
     </div>
     <div class="product">
-        <img src="product3.jpg" alt="Best Seller 3">
-        <h3>Fresh Breads</h3>
-        <button>Add to Cart</button>
+        <img src="img/bestcookies1.jpg" alt="Best Seller 3">
+        <div class="description">
+            <p>These cookies combine chocolate, marshmallow, and graham crackers for a campfire treat.</p>
+        </div>
+        <h3>S'Mores Cookies</h3>
+        <a href="products.html">
+            <button>Shop Now</button>
+        </a>
+    </div>
+    <div class="product">
+        <img src="img/bestcookies2.jpg" alt="Best Seller 4">
+        <div class="description">
+            <p>Soft, chewy red velvet cookies with a subtle tangy cream cheese filling.</p>
+        </div>
+        <h3>Red Velvet Cookies</h3>
+        <a href="products.html">
+            <button>Shop Now</button>
+        </a>
     </div>
 </section>
-
 
 <!-- Footer -->
 <footer>
@@ -159,21 +184,19 @@
     document.addEventListener("DOMContentLoaded", () => {
         const slides = document.querySelectorAll(".ad-slider img");
         const dots = document.querySelectorAll(".slider-indicators .dot");
+        const prevBtn = document.querySelector(".prev-btn");
+        const nextBtn = document.querySelector(".next-btn");
         let currentIndex = 0;
 
         // Function to switch to a specific slide
         const goToSlide = (index) => {
             slides.forEach((slide, i) => {
-                slide.classList.remove("active", "previous", "next");
+                slide.classList.remove("active");
                 dots[i].classList.remove("active");
 
                 if (i === index) {
                     slide.classList.add("active");
                     dots[i].classList.add("active");
-                } else if (i === (index - 1 + slides.length) % slides.length) {
-                    slide.classList.add("previous");
-                } else if (i === (index + 1) % slides.length) {
-                    slide.classList.add("next");
                 }
             });
             currentIndex = index;
@@ -185,13 +208,15 @@
             goToSlide(nextIndex);
         };
 
-        // Auto-slide every 1 seconds
-        let slideInterval = setInterval(nextSlide, 1000);
+        // Function to go to the previous slide
+        const prevSlide = () => {
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+            goToSlide(prevIndex);
+        };
 
-        // Pause auto-slide on hover
-        const slider = document.querySelector(".ad-slider");
-        slider.addEventListener("mouseenter", () => clearInterval(slideInterval));
-        slider.addEventListener("mouseleave", () => slideInterval = setInterval(nextSlide, 5000));
+        // Add event listeners for the buttons
+        nextBtn.addEventListener("click", nextSlide);
+        prevBtn.addEventListener("click", prevSlide);
 
         // Add click event to dots
         dots.forEach((dot, i) => {
@@ -200,11 +225,19 @@
             });
         });
 
+        // Auto-slide every 5 seconds
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        // Pause auto-slide on hover
+        const slider = document.querySelector(".ad-slider");
+        slider.addEventListener("mouseenter", () => clearInterval(slideInterval));
+        slider.addEventListener("mouseleave", () => slideInterval = setInterval(nextSlide, 5000));
+
         // Initialize the first slide
         goToSlide(currentIndex);
     });
-
 </script>
+
 
 <script>
     // Select all navigation links
