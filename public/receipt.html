@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="css/receipt.css">
+</head>
+<body>
+<section id="receipt-section">
+    <h2>Thank You for Your Order!</h2>
+    <p>Your order has been placed successfully. Here are your order details:</p>
+
+    <div id="order-details">
+        <!-- Dynamically populated -->
+    </div>
+
+    <a href="index.html">Return to Home</a>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+
+        if (!orderDetails) {
+            document.getElementById('order-details').innerHTML = "<p>No order found.</p>";
+            return;
+        }
+
+        const detailsHtml = `
+      <p><strong>Full Name:</strong> ${orderDetails.fullName}</p>
+      <p><strong>Phone Number:</strong> ${orderDetails.phoneNumber}</p>
+      <p><strong>Email:</strong> ${orderDetails.email}</p>
+      <p><strong>Pickup Date:</strong> ${orderDetails.pickupDate}</p>
+      <p><strong>Pickup Time:</strong> ${orderDetails.pickupTime}</p>
+      <p><strong>Address:</strong> ${orderDetails.address}</p>
+      <p><strong>Total Price:</strong> RM ${orderDetails.totalPrice}</p>
+    `;
+        document.getElementById('order-details').innerHTML = detailsHtml;
+    });
+</script>
+
+</body>
+</html>

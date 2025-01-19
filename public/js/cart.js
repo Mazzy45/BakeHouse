@@ -1,59 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const table = document.getElementById('cartTable');
+// Load cart items from localStorage
+function loadCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartContainer = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
+    cartContainer.innerHTML = '';
 
-    // Ensure the table exists in the DOM
-    if (!table) {
-        console.error("Error: Table with id 'cartTable' not found in the DOM!");
-        return;
+    let totalPrice = 0;
+
+    cart.forEach((item, index) => {
+        // Ensure valid data
+        const price = parseFloat(item.price) || 0;
+        const quantity = parseInt(item.quantity) || 1; // Default quantity to 1 if invalid
+
+        const productRow = `
+      <tr>
+        <td>${item.name || 'Undefined'}</td>
+        <td>RM ${price.toFixed(2)}</td>
+        <td>${quantity}</td>
+        <td>RM ${(price * quantity).toFixed(2)}</td>
+        <td><button class="remove-btn" onclick="removeFromCart(${index})">Remove</button></td>
+      </tr>
+    `;
+        cartContainer.innerHTML += productRow;
+        totalPrice += price * quantity;
+    });
+
+    totalPriceElement.textContent = `RM ${totalPrice.toFixed(2)}`;
+}
+
+// Remove item from cart
+function removeFromCart(index) {
+    if (confirm('Are you sure you want to remove this item?')) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.splice(index, 1); // Remove the selected item
+        localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+        loadCart(); // Reload cart items
     }
+}
 
-    // Ensure the table has a <tbody> element
-    let tableBody = table.querySelector('tbody');
-    if (!tableBody) {
-        console.error("Error: <tbody> not found in cartTable!");
-        // If <tbody> doesn't exist, create it
-        tableBody = document.createElement('tbody');
-        table.appendChild(tableBody);
+// Clear entire cart
+function clearCart() {
+    if (confirm('Are you sure you want to clear the entire cart?')) {
+        localStorage.removeItem('cart'); // Remove cart data from localStorage
+        loadCart(); // Reload cart to reflect changes
     }
+}
 
-    // Fetch cart data from the backend
-    fetch('http://localhost:8080/viewCart')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.text();
-        })
-        .then(data => {
-            const rows = data.trim().split('\n'); // Split the response by lines
+function redirectToCheckout() {
+    // Redirect the user to the checkout page
+    window.location.href = 'checkout.html';
+}
 
-            // Clear the table body before adding new rows
-            tableBody.innerHTML = '';
-
-            rows.forEach(row => {
-                if (row.trim() === "") return; // Skip empty lines
-
-                const columns = row.split(','); // Split row into columns
-                const tr = document.createElement('tr');
-
-                // Add product name
-                const tdName = document.createElement('td');
-                tdName.textContent = columns[0]; // First column: product name
-                tr.appendChild(tdName);
-
-                // Add price
-                const tdPrice = document.createElement('td');
-                tdPrice.textContent = columns[1]; // Second column: price
-                tr.appendChild(tdPrice);
-
-                // Add quantity
-                const tdQuantity = document.createElement('td');
-                tdQuantity.textContent = columns[2]; // Third column: quantity
-                tr.appendChild(tdQuantity);
-
-                // Append the row to the table body
-                tableBody.appendChild(tr);
-            });
-        })
-        .catch(error => console.error('Error loading cart:', error));
-});
+// Initialize cart on page load
+window.onload = function () {
+    loadCart();
+    document.getElementById('clear-cart-btn').addEventListener('click', clearCart);
+};

@@ -1,0 +1,57 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7e8d5; /* Light brown background */
+    color: #5a3e2b; /* Dark brown text */
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #5a3e2b;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #5a3e2b;
+    margin-bottom: 10px;
+}
+
+section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #fff4e6; /* Light beige background for sections */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#order-details {
+    margin-top: 20px;
+    background-color: #fdf6ec; /* Slightly lighter beige */
+    padding: 15px;
+    border: 1px solid #d4b89f;
+    border-radius: 8px;
+}
+
+#order-details p {
+    margin: 5px 0;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #d4b89f; /* Medium brown button */
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+a:hover {
+    background-color: #b9977d; /* Slightly darker brown */
+}
