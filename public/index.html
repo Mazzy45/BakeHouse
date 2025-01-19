@@ -266,5 +266,19 @@
     }, 10000);  // Adjust the interval to your needs
 </script>
 
+<script>
+    // Function to update cart count in the header
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartCountElement = document.querySelector('.cart-count');
+        if (cartCountElement) {
+            cartCountElement.textContent = cart.length;
+        }
+    }
+
+    // Call the function to update the count on page load
+    updateCartCount();
+</script>
+
 </body>
 </html>

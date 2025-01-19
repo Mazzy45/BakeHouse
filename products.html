@@ -114,24 +114,29 @@
 
   // Update cart count
   function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cartCount = cart.length; // Sync cartCount with stored cart
     const cartCountElement = document.querySelector('.cart-count');
-    cartCountElement.textContent = cartCount;
+    if (cartCountElement) {
+      cartCountElement.textContent = cartCount;
+    }
   }
 
-  // Function to handle "Add to Cart"
+  // Add to Cart function
   function addToCart(productId, productName, productPrice) {
-    cartCount++;
-    updateCartCount();
-
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const product = {
       productId: productId,
       name: productName,
       price: productPrice
     };
-    cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    cart.push(product); // Add product to cart
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to Local Storage
+    updateCartCount(); // Update count in UI
   }
+
+  // Call this on page load
+  updateCartCount();
 
   // Fetch products from server-side CSV and display them
   function fetchAndDisplayProducts() {
