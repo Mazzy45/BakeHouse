@@ -94,7 +94,6 @@
 
 <!-- JavaScript to Handle Smooth Scrolling -->
 <script>
-  // Smooth scroll behavior for all anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -109,8 +108,8 @@
 
 <!-- Inline JavaScript -->
 <script>
-  // Example cart count functionality
-  let cartCount = 0; // Initialize cart count
+  // Initialize cart count
+  let cartCount = 0;
 
   // Update cart count
   function updateCartCount() {
@@ -119,111 +118,75 @@
   }
 
   // Function to handle "Add to Cart"
-  function addToCart() {
+  function addToCart(productId, productName, productPrice) {
     cartCount++;
-    updateCartCount(); // Update cart count display
+    updateCartCount();
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const product = {
+      productId: productId,
+      name: productName,
+      price: productPrice
+    };
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
-  // Add event listeners to all "Add to Cart" buttons
-  document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', addToCart);
-  });
-
-  // Initialize cart count display
-  updateCartCount();
-
-  /*
-  let cartCount = 0; // This will track the number of items in the cart
-
-  // Function to add product to cart
-  function addToCart() {
-    cartCount++; // Increase the cart count by 1
-    updateCartCount(); // Update the display
-  }
-
-  // Function to update the cart count display
-  function updateCartCount() {
-    const cartCountElement = document.querySelector('.cart-count');
-    cartCountElement.textContent = cartCount; // Set the number in the cart count span
-  }
-
-  // Example usage: Call this function when the "Add to Cart" button is clicked
-  document.querySelectorAll('.product button').forEach(button => {
-    button.addEventListener('click', addToCart);
-  }); */
-</script>
-
-<!-- JavaScript for Cart Functionality -->
-<script>
-  // Function to fetch and display products from CSV
+  // Fetch products from server-side CSV and display them
   function fetchAndDisplayProducts() {
-    // Log the fetch attempt to monitor it
-    console.log("Attempting to fetch products data...");
-    // Fetch the CSV file
     fetch('products.csv')
             .then(response => {
               if (!response.ok) {
                 throw new Error('Failed to fetch products CSV file');
               }
-              return response.text(); // Get the response as text (CSV)
+              return response.text();
             })
             .then(csvData => {
-              console.log("CSV data fetched successfully:");
-              console.log(csvData); // Log the CSV data to inspect its structure
-              parseCSV(csvData); // Call the function to parse CSV and render the data
+              parseCSV(csvData);
             })
             .catch(error => {
               console.error("Error fetching CSV data:", error);
-              alert("Failed to load products. Check the console for more details.");
             });
   }
-  // Function to parse CSV data and render products
+
+  // Parse CSV data and render products
   function parseCSV(csvData) {
-    // Split the CSV data into rows
     const rows = csvData.split('\n');
-    console.log("CSV rows:", rows); // Log to see the structure of the rows
     const cakeContainer = document.getElementById('cake-products');
     const cookieContainer = document.getElementById('cookie-products');
-    // Loop through each row and process the data
     rows.forEach((row, index) => {
-      if (index === 0) return; // Skip header row
+      if (index === 0) return;
       const columns = row.split(',');
       if (columns.length !== 6) {
         console.error("Invalid row detected, skipping:", row);
-        return; // Skip invalid rows
+        return;
       }
       const [typecode, id, type, name, price, imageUrl] = columns;
-      if (typecode === '2') { // For Cakes
+      if (typecode === '2') {
         const cakeHTML = `
-                    <div class="product-card">
-                        <img src="${imageUrl}" alt="${name}">
-                        <h3>${name}</h3>
-                        <p>8' whole cake: RM ${price}</p>
-                        <button class="btn" onclick="addToCart(${id})">Add to Cart</button>
-                    </div>
-                `;
-        cakeContainer.innerHTML += cakeHTML; // Add to cake products section
-      } else if (typecode === '1') { // For Cookies
+                        <div class="product-card">
+                            <img src="${imageUrl}" alt="${name}">
+                            <h3>${name}</h3>
+                            <p>8' whole cake: RM ${price}</p>
+                            <button class="btn" onclick="addToCart(${id}, '${name}', '${price}')">Add to Cart</button>
+                        </div>
+                    `;
+        cakeContainer.innerHTML += cakeHTML;
+      } else if (typecode === '1') {
         const cookieHTML = `
-                    <div class="product-card">
-                        <img src="${imageUrl}" alt="${name}">
-                        <h3>${name}</h3>
-                        <p>25 pieces: RM ${price}</p>
-                        <button class="btn" onclick="addToCart(${id})">Add to Cart</button>
-                    </div>
-                `;
-        cookieContainer.innerHTML += cookieHTML; // Add to cookie products section
+                        <div class="product-card">
+                            <img src="${imageUrl}" alt="${name}">
+                            <h3>${name}</h3>
+                            <p>25 pieces: RM ${price}</p>
+                            <button class="btn" onclick="addToCart(${id}, '${name}', '${price}')">Add to Cart</button>
+                        </div>
+                    `;
+        cookieContainer.innerHTML += cookieHTML;
       }
     });
   }
-  // Example cart function
-  function addToCart(productId) {
-    console.log(`Added product with ID ${productId} to cart`);
-  }
-  // Run the function to fetch and display products when the page loads
-  window.onload = updateCartCount;
-  window.onload = fetchAndDisplayProducts;
 
+  window.onload = fetchAndDisplayProducts;
 </script>
 
 </body>
