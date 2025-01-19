@@ -41,7 +41,7 @@
     <img src="https://www.southernliving.com/thmb/1nXApw4eCu0_IjJInCt3sDrVhSk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Monster_Cookies_010-2996b6446e834ad1b093ef08b6828160.jpg" alt="Advertisement 1">
     <img src="https://www.lacherpatisserie.com/cdn/shop/files/cake.jpg?v=1728876091" alt="Advertisement 2">
     <img src="https://media.istockphoto.com/id/623709028/photo/table-with-various-cookies-tarts-cakes-cupcakes-and-cakepops.jpg?s=612x612&w=0&k=20&c=NX-Ld03_GDHO77WjzzrUacReuoaXHajIXPsjdxgJDG8=" alt="Advertisement 3">
-    <img src="https://www.shutterstock.com/image-photo/table-various-cookies-donuts-cakes-600nw-2118716384.jpg" alt="Advertisement 4">
+    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/63/40/a1/cakes-at-ganache-patisserie.jpg?w=1600&h=-1&s=1" alt="Advertisement 4">
 
     <!-- Slider Indicators -->
     <div class="slider-indicators">
@@ -50,6 +50,14 @@
         <span class="dot"></span>
         <span class="dot"></span>
     </div>
+
+    <!-- Navigation Buttons -->
+    <button class="slider-btn prev-btn" onclick="handlePrev()">
+        &#10094; <!-- Left arrow for Previous (‹) -->
+    </button>
+    <button class="slider-btn next-btn" onclick="handleNext()">
+        &#10095; <!-- Right arrow for Next (›) -->
+    </button>
 </div>
 
 
@@ -176,21 +184,19 @@
     document.addEventListener("DOMContentLoaded", () => {
         const slides = document.querySelectorAll(".ad-slider img");
         const dots = document.querySelectorAll(".slider-indicators .dot");
+        const prevBtn = document.querySelector(".prev-btn");
+        const nextBtn = document.querySelector(".next-btn");
         let currentIndex = 0;
 
         // Function to switch to a specific slide
         const goToSlide = (index) => {
             slides.forEach((slide, i) => {
-                slide.classList.remove("active", "previous", "next");
+                slide.classList.remove("active");
                 dots[i].classList.remove("active");
 
                 if (i === index) {
                     slide.classList.add("active");
                     dots[i].classList.add("active");
-                } else if (i === (index - 1 + slides.length) % slides.length) {
-                    slide.classList.add("previous");
-                } else if (i === (index + 1) % slides.length) {
-                    slide.classList.add("next");
                 }
             });
             currentIndex = index;
@@ -202,13 +208,15 @@
             goToSlide(nextIndex);
         };
 
-        // Auto-slide every 1 seconds
-        let slideInterval = setInterval(nextSlide, 1000);
+        // Function to go to the previous slide
+        const prevSlide = () => {
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+            goToSlide(prevIndex);
+        };
 
-        // Pause auto-slide on hover
-        const slider = document.querySelector(".ad-slider");
-        slider.addEventListener("mouseenter", () => clearInterval(slideInterval));
-        slider.addEventListener("mouseleave", () => slideInterval = setInterval(nextSlide, 5000));
+        // Add event listeners for the buttons
+        nextBtn.addEventListener("click", nextSlide);
+        prevBtn.addEventListener("click", prevSlide);
 
         // Add click event to dots
         dots.forEach((dot, i) => {
@@ -217,11 +225,19 @@
             });
         });
 
+        // Auto-slide every 5 seconds
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        // Pause auto-slide on hover
+        const slider = document.querySelector(".ad-slider");
+        slider.addEventListener("mouseenter", () => clearInterval(slideInterval));
+        slider.addEventListener("mouseleave", () => slideInterval = setInterval(nextSlide, 5000));
+
         // Initialize the first slide
         goToSlide(currentIndex);
     });
-
 </script>
+
 
 <script>
     // Select all navigation links
