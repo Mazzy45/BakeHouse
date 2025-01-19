@@ -36,7 +36,7 @@ public class AdminLogin implements HttpHandler {
             } else {
                 // Invalid login: show error message on login page
                 String errorMessage = "<html><body><h3>Invalid Username or Password</h3>" +
-                        "<a href='/adminlogin.html'>Try Again</a></body></html>";
+                        "<a href='/adminLogin.html'>Try Again</a></body></html>";
                 exchange.sendResponseHeaders(200, errorMessage.getBytes().length);
                 OutputStream os = exchange.getResponseBody();
                 os.write(errorMessage.getBytes());
